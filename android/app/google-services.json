@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "572216125665",
+    "project_id": "edspertclone",
+    "storage_bucket": "edspertclone.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:572216125665:android:55937ac557b22dcf9d6fa0",
+        "android_client_info": {
+          "package_name": "com.clone_edspert_soal.clone_edspert_soal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "572216125665-1b1smivn8ufc9sqhhclfnqe11m0sc8l6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.clone_edspert_soal.clone_edspert_soal",
+            "certificate_hash": "19a2169d2108a137c15448da747336377eb70472"
+          }
+        },
+        {
+          "client_id": "572216125665-65stt6a3p6snkqqhk961niiqftv3ci0c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbUu9heE8oXDZcvhiChIICYMSZOAHAEag"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "572216125665-65stt6a3p6snkqqhk961niiqftv3ci0c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
