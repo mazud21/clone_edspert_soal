@@ -35,8 +35,9 @@ class LoadData extends ChangeNotifier{
         log('GET_BANNER_DATA: ${json.decode(response.body)['data']}');
 
         final jsonBannerList = jsonDecode(response.body);
-        bannerList = BannerList.fromJson(jsonBannerList);
+
         notifyListeners();
+        return bannerList = BannerList.fromJson(jsonBannerList);
       } else {
 
       }
@@ -64,8 +65,9 @@ class LoadData extends ChangeNotifier{
         log('GET_MAPEL_DATA: ${json.decode(response.body)['data']}');
 
         final jsonBannerList = jsonDecode(response.body);
-        mapelList = MapelList.fromJson(jsonBannerList);
+
         notifyListeners();
+        return mapelList = MapelList.fromJson(jsonBannerList);
       } else {
 
       }
@@ -105,7 +107,7 @@ class LoadData extends ChangeNotifier{
   }
 
   KerjakanSoalList? kerjakanSoalList;
-  getSoal(String exercise_id,String email) async {
+  getSoal(String exercise_id) async {
     String url = ApiUrl.baseUrl+ApiUrl.latihanKerjakanSoal;
 
     log('message : $url ${ApiUrl.apiKey}');
@@ -116,15 +118,17 @@ class LoadData extends ChangeNotifier{
 
     Map<String, String> bodyParams = {
       'exercise_id' : exercise_id,
-      'user_email' : email
+      'user_email' : email.toString()
     };
+
+    log('message_email: $email');
 
     final response = await http.post(Uri.parse(url), headers: requestHeaders, body: bodyParams);
 
     try{
 
       if(response.statusCode == 200) {
-        log('GET_MAPEL_DATA: ${json.decode(response.body)['data']}');
+        log('GET_SOAL_DATA: ${json.decode(response.body)['data']}');
 
         final jsonBannerList = jsonDecode(response.body);
         kerjakanSoalList = KerjakanSoalList.fromJson(jsonBannerList);
@@ -134,7 +138,7 @@ class LoadData extends ChangeNotifier{
       }
 
     } on Exception catch (e){
-      log('ERROR_BANNER: $e');
+      log('ERROR_SOAL: $e');
     }
   }
 

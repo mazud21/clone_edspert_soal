@@ -17,7 +17,7 @@ class PakeSoalPage extends StatefulWidget {
 }
 
 class _PakeSoalPageState extends State<PakeSoalPage> {
-  PaketSoalList? paketSoalList;
+  //PaketSoalList? paketSoalList;
   /*getPaketSoal() async {
     final mapelREsult = await LatihanSoalApi().getPaketSoal(widget.id);
     if (mapelREsult.status == Status.success) {
@@ -33,8 +33,18 @@ class _PakeSoalPageState extends State<PakeSoalPage> {
     // TODO: implement initState
     super.initState();
     //getPaketSoal();
+    load();
+  }
+
+  load(){
     loadData = Provider.of<LoadData>(context,listen: false);
     loadData?.getPaket(widget.id);
+
+    Future.delayed(const Duration(seconds: 3), () {
+      setState(() {
+        // Here you can write your code for open new view
+      });
+    });
   }
 
   @override
@@ -64,30 +74,14 @@ class _PakeSoalPageState extends State<PakeSoalPage> {
                         child: Wrap(
                           children: List.generate(loadData?.paketSoalList!.data!.length as int,
                               (index) {
-                            final currentPaketSoal =
-                                paketSoalList!.data![index];
+                            final currentPaketSoal = loadData?.paketSoalList!.data![index];
                             return Container(
                                 padding: EdgeInsets.all(3),
                                 width: MediaQuery.of(context).size.width * 0.4,
-                                child: PaketSoalWidget(data: currentPaketSoal));
+                                child: PaketSoalWidget(data: loadData?.paketSoalList!.data![index] as PaketSoalData));
                           }).toList(),
                         ),
                       )
-
-                // GridView.count(
-                //     mainAxisSpacing: 10,
-                //     crossAxisSpacing: 10,
-                //     crossAxisCount: 2,
-                //     childAspectRatio: 4 / 3,
-                //     children:
-
-                //     // [
-                //     // PaketSoalWodget(),
-                //     // PaketSoalWodget(),
-                //     // PaketSoalWodget(),
-                //     // PaketSoalWodget()
-                //     // ],
-                //     ),
                 ),
           ],
         ),
@@ -97,7 +91,7 @@ class _PakeSoalPageState extends State<PakeSoalPage> {
 }
 
 class PaketSoalWidget extends StatelessWidget {
-  const PaketSoalWidget({
+  PaketSoalWidget({
     Key? key,
     required this.data,
   }) : super(key: key);

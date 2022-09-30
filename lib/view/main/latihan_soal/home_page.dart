@@ -22,7 +22,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  MapelList? mapelList;
+  //MapelList? mapelList;
   /*getMapel() async {
     final mapelREsult = await LatihanSoalApi().getMapel();
     if (mapelREsult.status == Status.success) {
@@ -31,7 +31,7 @@ class _HomePageState extends State<HomePage> {
     }
   }*/
 
-  BannerList? bannerList;
+  //BannerList? bannerList;
   /*getBanner() async {
     final banner = await LatihanSoalApi().getBanner();
     if (banner.status == Status.success) {
@@ -102,6 +102,12 @@ class _HomePageState extends State<HomePage> {
     loadData = Provider.of<LoadData>(context,listen: false);
     loadData?.getBanner();
     loadData?.getMapel();
+
+    Future.delayed(const Duration(seconds: 3), () {
+      setState(() {
+        // Here you can write your code for open new view
+      });
+    });
   }
 
   @override
